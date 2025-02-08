@@ -1,0 +1,32 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="kurs.StatusAddWindow"
+        Title="StatusAddWindow">
+    <StackPanel Margin="10">
+            <TextBlock Text="Клиент:"/>
+            <ComboBox x:Name="cmbClient" Margin="5" x:CompileBindings="False" SelectedItem="{Binding Client}" DisplayMemberBinding="{Binding Fio}"/>
+            
+            <TextBlock Text="Товар" />
+            <ComboBox x:Name="cmbOrder" Margin="5" x:CompileBindings="False" SelectedItem="{Binding Order}" DisplayMemberBinding="{Binding Order.ProductId}"/>
+            
+            <TextBlock Text="Статус заказа:"/>
+            <ComboBox x:Name="cmbDelivery" Margin="5" x:CompileBindings="False" SelectedItem="{Binding Delivery}" DisplayMemberBinding="{Binding Name}"/>
+            
+            <TextBlock Text="Количество:"/>
+            <TextBox x:Name="TxtBoxQuantity" Margin="5" Width="250" x:CompileBindings="False" Text="{Binding Quantity}"/>
+            
+            <TextBlock Text="Адрес доставки"/>
+            <TextBox x:Name="TxtBoxAddress" Margin="5" Width="250" x:CompileBindings="False" Text="{Binding DeliveryAddress}"/>
+            
+            <TextBlock Text="Стоимость товара"/>
+            <TextBox x:Name="TxtBoxAmount" Margin="5" Width="250" x:CompileBindings="False" Text="{Binding Amount}"/>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                <Button x:Name="btnSave" Click="BtnSave_OnClick" Content="Сохранить" Margin="5"/>
+                <Button x:Name="btnCancel" Click="BackButton_Click" Content="Назад" Margin="5" />
+            </StackPanel>
+    </StackPanel>
+</Window>

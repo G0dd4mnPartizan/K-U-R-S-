@@ -1,0 +1,40 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="kurs.ClientWindow"
+        Title="ClientWindow">
+        <Grid>
+                <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                
+                <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center">Укажите имя клиента  </TextBlock>
+                        <TextBox x:Name="FioFilter" Width="300" Height="40" Margin="5,0,0,0"/>
+                        <Button x:Name="btnFilter" Margin="5,0,0,0" Click="BtnFilter_OnClick" Content="Фильтровать"/>
+                        <Button x:Name="btnAll" Margin="5,0,0,0" Click="BtnAll_OnClick" Content="Показать все"/>
+               </StackPanel>
+                
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <Button x:Name="btnCreate" Click="BtnCreate_OnClick" Content="Создать"/>
+                        <Button x:Name="btnDelete" Click="BtnDelete_OnClick" Content="Удалить"/>
+                </StackPanel>
+                
+                <DataGrid Grid.Row="2" x:Name="DataGridClient" x:CompileBindings="False" ColumnWidth="Auto">
+                        <DataGrid.Columns>
+                                <DataGridTextColumn Header="Имя" Binding="{Binding Fio}"/>
+                                <DataGridTextColumn Header="Адрес" Binding="{Binding PaymentType.Name}"/>
+                                <DataGridTextColumn Header="Номер" Binding="{Binding Phone}"/>
+                        </DataGrid.Columns>
+                </DataGrid>
+                <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Content="Статус" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5" Width="200" Click="StatusBtn_Click" />
+                        <Button Content="Товар" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5" Width="200" Click="ProductBtn_Click" />
+                </StackPanel>
+        </Grid>
+</Window>
